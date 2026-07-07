@@ -3,8 +3,8 @@ global main
 
 section .data ;------------------------------
 
-fslash: db `\u2571`, 0
-bslash: db `\u2572`, 0
+fslash: db `\u2571`, 0    ; diagonal box character (wider /)
+bslash: db `\u2572`, 0    ; reverse diagonal box character (wider \)
 len: equ 4
 
 ; timespec struct(s, ns)
