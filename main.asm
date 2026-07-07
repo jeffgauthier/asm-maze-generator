@@ -21,13 +21,13 @@ main:
 	call rnd_gen
 
 rnd_gen:
-	rdrand rcx			; generate a random number
-	jnc rnd_gen			; restart if not ready
-	and rcx, 1			; bitwise AND. Lowest bit unchanged if 1, otherwise becomes 0
-	inc rcx				; offset [0,1] by 1
-	cmp rcx, 2			; check if random number == 2
-	jne select_fslash	; if (random_num != 2) goto select_fslash;
-    je select_bslash	; if (random_num == 2) goto select_bslash;
+	rdrand rcx          ; generate a random number
+	jnc rnd_gen         ; restart if not ready
+	and rcx, 1          ; bitwise AND. Lowest bit unchanged if 1, otherwise becomes 0
+	inc rcx             ; offset [0,1] by 1
+	cmp rcx, 2          ; check if random number == 2
+	jne select_fslash   ; if (random_num != 2) goto select_fslash;
+    je select_bslash    ; if (random_num == 2) goto select_bslash;
 
 select_fslash:
 	mov qword [rbp-8], fslash
@@ -46,11 +46,11 @@ print_char:
 	jmp wait_a_bit
 
 wait_a_bit:
-	mov rax, 35			; sys_nanosleep
-	mov rdi, timespec	; param1: point to requested time
-	xor rsi, rsi		; param2: set to null
-	syscall				; call the kernel
-	jmp rnd_gen			; restart
+	mov rax, 35         ; sys_nanosleep
+	mov rdi, timespec   ; param1: point to requested time
+	xor rsi, rsi        ; param2: set to null
+	syscall             ; call the kernel
+	jmp rnd_gen         ; restart
 
 bye:
 	mov rax, 60
