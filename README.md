@@ -1,6 +1,8 @@
 # asm-maze-generator
-A program that mimics the famous one-liner Commodore BASIC command to display a random maze on a terminal. 
-
+A program that mimics the famous one-liner Commodore BASIC command to display a random maze on a terminal.
+```
+10 PRINT CHR$(205.5+RND(1));:GOTO 10
+```
 Coded in Netwide Assembly (NASM, Linux 64-bit).
 
 # Requirements
