@@ -1,7 +1,7 @@
-all: main
+all: maze
 
-main.o: main.asm
-	nasm -felf64 -o main.o main.asm
+maze.o: maze.asm
+	nasm -felf64 -o maze.o maze.asm
 
-main: main.o
-	gcc -no-pie -o main main.o
+maze: maze.o
+	gcc -no-pie -o maze maze.o
