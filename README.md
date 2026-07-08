@@ -18,6 +18,6 @@ sudo apt install nasm build-essential
 git clone jeffgauthier/asm-maze-generator.git
 cd asm-maze-generator
 make
-chmod u+x main
-./main
+chmod u+x maze
+./maze
 ```
